@@ -104,7 +104,3 @@ Se presenta la siguiente tabla a modo de resumen:
 | Derecha (\(x=a\)) | \(+\hat{x}\) | \(A[idx, idx-1] = -2\mu_x\) | \(+2\mu_x h_x g\) |
 | Inferior (\(y=0\)) | \(-\hat{y}\) | \(A[idx, idx+N] = -2\mu_y\) | \(-2\mu_y h_y g\) |
 | Superior (\(y=b\)) | \(+\hat{y}\) | \(A[idx, idx-N] = -2\mu_y\) | \(+2\mu_y h_y g\) |
-
----
-
-**Ahora**: En la sección [Python](python.md) se puede ver cómo se implemento la solucion en Python.
