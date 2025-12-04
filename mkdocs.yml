@@ -61,6 +61,7 @@ nav:
   - Implementación:
     - Python: implementacion/python.md
     - C++: implementacion/cpp.md
+    - Paralelización: implementacion/Paralelizacion.md
   - Ejemplos de Uso:
     - Casos de Prueba: ejemplos/casos-prueba.md
   - Referencias: referencias.md
