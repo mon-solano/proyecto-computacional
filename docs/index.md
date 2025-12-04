@@ -2,7 +2,7 @@
 
 ## Bienvenido
 
-Este proyecto presenta una solución numérica completa para la **ecuación de calor en dos dimensiones**, implementando métodos de diferencias finitas con el **esquema de Euler Implícito** (Backward Euler).
+Este proyecto presenta una solución numérica completa para la **ecuación de calor en dos dimensiones**, implementando métodos de diferencias finitas con el **esquema de Euler Implícito**.
 
 ## Visión General del Proyecto
 
