@@ -1,0 +1,66 @@
+site_name: Ecuación de Calor en 2D
+site_description: Solución numérica de la ecuación de calor en dos dimensiones
+site_author: Sofia Isadora Sara Montse
+site_url: https://mon-solano.github.io/proyecto-computacional/
+repo_url: https://github.com/mon-solano/proyecto-computacional
+repo_name: mon-solano/proyecto-computacional
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: lavender
+      toggle:
+        icon: material/brightness-7
+        name: Modo oscuro
+    - scheme: slate
+      primary: deep purple
+      accent: lavender
+      toggle:
+        icon: material/brightness-4
+        name: Modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Inicio: index.md
+  - Problema Matemático:
+    - Formulación: matematica/formulacion.md
+    - Metodología Numérica: matematica/metodologia.md
+    - Condiciones de Frontera: matematica/condiciones.md
+  - Implementación:
+    - Python: implementacion/python.md
+    - C++: implementacion/cpp.md
+  - Ejemplos de Uso:
+    - Casos de Prueba: ejemplos/casos-prueba.md
+  - Referencias: referencias.md
