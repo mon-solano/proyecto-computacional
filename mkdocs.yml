@@ -62,6 +62,5 @@ nav:
     - Python: implementacion/python.md
     - C++: implementacion/cpp.md
   - Ejemplos de Uso:
-    - Casos de Prueba: ejemplos/casos-prueba.md
     - Ejecución y Resultados: ejemplos/ejemplos-ejecucion.md
   - Referencias: referencias.md
