@@ -125,7 +125,3 @@ C & B & C & \ldots & 0 \\
 \]
 
 Esta es una **matriz dispersa** que se puede almacenar y resolver eficientemente.
-
----
-
-**Ahora**: En la sección [Condiciones de Frontera](condiciones.md) se puede ver cómo se manejan las condiciones de frontera (Dirichlet y Neumann) numericamente.
