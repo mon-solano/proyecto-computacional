@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.sparse import diags, kron, eye, lil_matrix
+from scipy.sparse import lil_matrix
 from scipy.sparse.linalg import spsolve
 import time
 import matplotlib.pyplot as plt
@@ -8,7 +8,7 @@ from IPython.display import HTML
 
 class HeatEquation2D:
 
-    def __init__(self, N=150, M=200, T=0.5, a=1.0, b=1.0, c=1.0,
+    def __init__(self, N, M, T, a, b, c,
                  condiciones_frontera=None):
         self.N = N # numero de puntos interiores en x y y
         self.M = M # numero de pasos temporales
@@ -196,7 +196,7 @@ class HeatEquation2D:
             # borde superior (j=N-1)
             idx_top = (N - 1) * N + i
             if self.condiciones_frontera['top']['type'] == 'dirichlet':
-                g_top = self.obtener_valor_frontera['top']['valor']
+                g_top = self.condiciones_frontera['top']['valor']
                 b[idx_top] += self.muy * g_top
 
             elif self.condiciones_frontera['top']['type'] == 'neumann':
@@ -423,18 +423,10 @@ def crear_animacion(soluciones, tiempos, titulo, condiciones_frontera, intervalo
     plt.close()  # Cerrar para evitar mostrar frame estático
     return anim
 
-
-#=
-
 if __name__ == "__main__":
     print("=" * 70)
     print("ECUACIÓN DE CALOR EN 2D")
     print("=" * 70)
-
-    # Parámetros del dominio
-    a = 1.0
-    b = 1.0
-    c = 1.0
 
     # Seleccionar condición inicial
     condicion_inicial = seleccionar_condicion_inicial()
@@ -445,7 +437,7 @@ if __name__ == "__main__":
     # Resolver con las condiciones especificadas
     print("Iniciando simulación...")
 
-    solver = HeatEquation2D(N=250, M=500, T=0.65, a=a, b=b, c=c,
+    solver = HeatEquation2D(N=250, M=500, T=0.65, a=1, b=1, c=1,
                             condiciones_frontera=condicion_frontera)
 
     soluciones, tiempos = solver.solve(condicion_inicial, save_every=5)
