@@ -443,7 +443,3 @@ def ejecutar_casos_prueba():
 # Ejecutar todas las pruebas
 resultados = ejecutar_casos_prueba()
 ```
-
----
-
-**Próximo paso**: Revisa [Análisis de Resultados](analisis.md) para técnicas de post-procesamiento y visualización avanzada.
