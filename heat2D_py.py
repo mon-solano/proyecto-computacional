@@ -8,8 +8,7 @@ from IPython.display import HTML
 
 class HeatEquation2D:
 
-    def __init__(self, N, M, T, a, b, c,
-                 condiciones_frontera=None):
+    def __init__(self, N, M, T, a, b, c, condiciones_frontera):
         self.N = N # numero de puntos interiores en x y y
         self.M = M # numero de pasos temporales
         self.T = T # tiempo final de simulacion
@@ -30,17 +29,7 @@ class HeatEquation2D:
         self.x = np.linspace(self.hx, a - self.hx, N)
         self.y = np.linspace(self.hy, b - self.hy, N)
         self.X, self.Y = np.meshgrid(self.x, self.y)
-
-        # Condiciones de frontera de dirichlet homogeneas, o sea, temperatura 0 en todas las fronteras
-        if condiciones_frontera is None:
-            self.condiciones_frontera = {
-                'left': {'type': 'dirichlet', 'valor': 0.0},
-                'right': {'type': 'dirichlet', 'valor': 0.0},
-                'bottom': {'type': 'dirichlet', 'valor': 0.0},
-                'top': {'type': 'dirichlet', 'valor': 0.0}
-            }
-        else:
-            self.condiciones_frontera = condiciones_frontera
+        self.condiciones_frontera = condiciones_frontera
 
         # Construir matriz del sistema
         self.A = self.MatrizLaplaciano()
