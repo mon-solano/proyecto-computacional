@@ -102,7 +102,7 @@ De lo obtenido anteriormente, podemos ver que para un punto $(i,j)$ dentro de la
 
 - \(u^{n+1}_{i,j}: 1 + 2\mu_x + 2\mu_y\)
 - \({u}^{n+1}_{i\pm1,j}:-\mu_x\)
-- \({u}^{n+1}_{i,j\pm1}:-\mu_x\)
+- \({u}^{n+1}_{i,j\pm1}:-\mu_y\)
 
 Entonces, $A$ es una matriz tridiagonal por bloques con la siguiente estructura:
 
