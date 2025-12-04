@@ -451,7 +451,3 @@ def crear_animacion(soluciones, tiempos, titulo, condiciones_frontera,
     
     return anim
 ```
-
----
-
-**Próximo paso**: Revisa [Ejemplos de Uso](../ejemplos/condiciones-iniciales.md) para casos prácticos completos.
