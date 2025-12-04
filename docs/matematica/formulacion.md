@@ -68,7 +68,3 @@ Especifican el **flujo de calor** en la frontera:
 - Si g > 0: el calor entra.
 - Si g < 0: el calor sale.
 - Si g = 0: el sistema es aislado.
-
----
-
-**Ahora**: En la sección [Metodología Numérica](metodologia.md) se puede ver cómo discretizamos y resolvemos esta ecuación numéricamente.
