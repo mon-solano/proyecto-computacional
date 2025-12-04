@@ -50,14 +50,16 @@ Se despeja este punto fantasma::
 u_{-1,j} = u_{1,j} - 2h_x \cdot g(y_j, t)
 \]
 
-Se sustituye en la aproximación de la segunda derivada:
+Se sustituye en la ecuacion de calor discretizada:
 
 \[
 \begin{align}
-\frac{\partial^2 u}{\partial x^2}\bigg|_{0,j} &\approx \frac{u_{-1,j} - 2u_{0,j} + u_{1,j}}{h_x^2} \\
-&= \frac{(u_{1,j} - 2h_x g) - 2u_{0,j} + u_{1,j}}{h_x^2} \\
-&= \frac{2u_{1,j} - 2u_{0,j}}{h_x^2} - \frac{2g}{h_x}
+(1 + 2\mu_x + 2\mu_y)u_{0,j}^{n+1} - \mu_x(2u_{1,j}^{n+1} - 2h_x g) - \mu_y(u_{0,j-1}^{n+1} + u_{0,j+1}^{n+1}) = u_{0,j}^n
 \end{align}
+\]
+
+\[
+(1 + 2\mu_x + 2\mu_y)u_{0,j}^{n+1} - 2\mu_xu_{1,j}^{n+1}  - \mu_y(u_{0,j-1}^{n+1} + u_{0,j+1}^{n+1}) = u_{0,j}^n - 2h_x g \mu_x
 \]
 
 ### Modificaciones al Sistema Lineal
