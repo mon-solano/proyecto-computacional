@@ -18,7 +18,7 @@
         <link rel="prev" href="../python/">
       
       
-        <link rel="next" href="../../ejemplos/casos-prueba/">
+        <link rel="next" href="../Paralelizacion/">
       
       
         
@@ -807,10 +807,127 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#paralelizacion-redblack-con-bloques-tiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paralelización Red–Black con Bloques (Tiling)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paralelización Red–Black con Bloques (Tiling)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodo-redblack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Método Red–Black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directivas-openmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directivas OpenMP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Directivas OpenMP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pragma-omp-parallel-for-collapse2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        #pragma omp parallel for collapse(2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedulestatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        schedule(static)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reductionmaxmaxdiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reduction(max:maxDiff)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#division-en-bloques-tiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        División en Bloques (Tiling)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Paralelizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paralelización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -892,6 +1009,34 @@
     
   
     Casos de Prueba
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejemplos/ejemplos-ejecucion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejecución y Resultados
   
 
     
@@ -1085,6 +1230,95 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#paralelizacion-redblack-con-bloques-tiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paralelización Red–Black con Bloques (Tiling)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paralelización Red–Black con Bloques (Tiling)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodo-redblack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Método Red–Black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directivas-openmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directivas OpenMP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Directivas OpenMP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pragma-omp-parallel-for-collapse2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        #pragma omp parallel for collapse(2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedulestatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        schedule(static)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reductionmaxmaxdiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reduction(max:maxDiff)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#division-en-bloques-tiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        División en Bloques (Tiling)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1104,8 +1338,6 @@
   
   
 
-
-  <h1>C++</h1>
 
 <h2 id="metodo-iterativo-gauss-seidel">Método Iterativo Gauss-Seidel<a class="headerlink" href="#metodo-iterativo-gauss-seidel" title="Permanent link">&para;</a></h2>
 <p>Para resolver <strong>Ax = b</strong>, Gauss-Seidel actualiza cada componente secuencialmente:</p>
@@ -1186,8 +1418,74 @@ Si <span class="arithmatex">\(a_{ii} &gt; 0\)</span> y la matriz es irreducible,
 <ul>
 <li><strong>Euler implícito</strong> convierte la PDE en un sistema lineal.</li>
 <li><strong>Gauss-Seidel</strong> (o Red-Black) es el método usado para resolver ese sistema.</li>
-<li>En cada paso temporal se ejecutan múltiples iteraciones de Gauss-Seidel hasta convergencia.</li>
+<li>
+<p>En cada paso temporal se ejecutan múltiples iteraciones de Gauss-Seidel hasta convergencia.</p>
+</li>
+<li>
+<h1 id="paralelizacion-redblack-con-bloques-tiling">Paralelización Red–Black con Bloques (Tiling)<a class="headerlink" href="#paralelizacion-redblack-con-bloques-tiling" title="Permanent link">&para;</a></h1>
+</li>
 </ul>
+<p>En la resolución numérica de la ecuación de calor en dos dimensiones mediante el método de Euler implícito, cada paso de tiempo requiere resolver un sistema lineal grande. Este sistema se resuelve con Gauss–Seidel, pero su versión clásica es totalmente secuencial, ya que cada punto depende de las actualizaciones recientes de sus vecinos. Esto hace que el método sea lento cuando la malla es grande. Para aprovechar los procesadores multinúcleo y reducir los tiempos de cómputo, se combinan dos técnicas muy utilizadas en paralelización: el esquema Red–Black Gauss–Seidel y la división de la malla en bloques o tiles.</p>
+<h2 id="metodo-redblack">Método Red–Black<a class="headerlink" href="#metodo-redblack" title="Permanent link">&para;</a></h2>
+<p>La idea del método Red–Black es dividir la malla como si fuera un tablero de ajedrez: los nodos donde (i + j) es par se marcan como rojos, y los nodos donde (i + j) es impar como negros. Esta separación no es arbitraria; garantiza que cada nodo rojo tenga únicamente vecinos negros, y que cada nodo negro tenga solo vecinos rojos. Esto permite eliminar dependencias y volver paralelizable un método que originalmente era secuencial.</p>
+<p>De esta forma, primero se pueden actualizar todos los nodos rojos en paralelo, y luego todos los nodos negros (o al revés). Gracias a esto, cada conjunto de nodos puede procesarse sin esperar al otro, permitiendo paralelizar Gauss–Seidel de manera efectiva.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fase</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">fase</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// 0 = rojos, 1 = negros</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="cp">#pragma omp parallel for collapse(2) reduction(max:maxDiff) schedule(static)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">bijy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">bijy</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nBlocksY</span><span class="p">;</span><span class="w"> </span><span class="n">bijy</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">bxi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">bxi</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nBlocksX</span><span class="p">;</span><span class="w"> </span><span class="n">bxi</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">            </span><span class="p">...</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jStart</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">jEnd</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iStart</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">iEnd</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">fase</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span><span class="w"> </span><span class="c1">// Red-Black</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">                    </span><span class="kt">double</span><span class="w"> </span><span class="n">newValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">                    </span><span class="n">maxDiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">maxDiff</span><span class="p">,</span><span class="w"> </span><span class="n">fabs</span><span class="p">(</span><span class="n">newValue</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">current</span><span class="p">[</span><span class="n">idx</span><span class="p">]));</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">                    </span><span class="n">current</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newValue</span><span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">}</span>
+</code></pre></div></p>
+<h2 id="directivas-openmp">Directivas OpenMP<a class="headerlink" href="#directivas-openmp" title="Permanent link">&para;</a></h2>
+<h3 id="pragma-omp-parallel-for-collapse2"><code>#pragma omp parallel for collapse(2)</code><a class="headerlink" href="#pragma-omp-parallel-for-collapse2" title="Permanent link">&para;</a></h3>
+<p>Este pragma indica que los bucles externos (los que recorren los bloques en las direcciones X e Y) se deben paralelizar. El uso de <code>collapse(2)</code> le dice a OpenMP que combine ambos bucles en uno solo, creando un conjunto de iteraciones más grande y uniforme. Esto ayuda a repartir mejor los bloques entre los hilos y evita que algunos queden sin trabajo cuando una dimensión tiene pocos bloques.</p>
+<ul>
+<li><strong>Sin collapse</strong>: solo se paraleliza por filas de bloques.</li>
+<li><strong>Con collapse</strong>: todos los bloques se reparten equitativamente.</li>
+</ul>
+<p>Sin collapse, es común que algunos hilos se queden esperando mientras otros aún siguen trabajando.</p>
+<h3 id="schedulestatic"><code>schedule(static)</code><a class="headerlink" href="#schedulestatic" title="Permanent link">&para;</a></h3>
+<p>El modo <code>static</code> se usa porque:</p>
+<ul>
+<li>Todos los bloques requieren prácticamente el mismo esfuerzo computacional.</li>
+<li>El tamaño del trabajo por bloque es muy similar.</li>
+<li>Se evita el costo adicional del planificador <code>dynamic</code>, que introduce más sincronizaciones.</li>
+</ul>
+<p>Con esto se logra una distribución rápida, simple y eficiente del cálculo entre hilos.</p>
+<h3 id="reductionmaxmaxdiff"><code>reduction(max:maxDiff)</code><a class="headerlink" href="#reductionmaxmaxdiff" title="Permanent link">&para;</a></h3>
+<p>En cada iteración se debe calcular la norma infinita del error:</p>
+<div class="arithmatex">\[
+\max|u^{(k+1)} - u^{(k)}|
+\]</div>
+<p>Como varios hilos contribuyen a este cálculo al mismo tiempo, se utiliza una reducción de tipo <code>max</code>. Esto permite que cada hilo compute su propio valor local sin interferir con los demás y que al final todos se combinen de forma segura para obtener el máximo global, evitando condiciones de carrera.</p>
+<h2 id="division-en-bloques-tiling">División en Bloques (Tiling)<a class="headerlink" href="#division-en-bloques-tiling" title="Permanent link">&para;</a></h2>
+<p>Además del coloreo Red-Black, la malla también se divide en bloques rectangulares (por ejemplo, de 32 x 32 celdas). Cada bloque se asigna a un hilo mediante OpenMP. Esto aporta varios beneficios importantes:</p>
+<ul>
+<li>Se reducen los accesos a memoria RAM</li>
+<li>Los datos cercanos se reutilizan dentro del bloque</li>
+<li>Los bloques se distribuyen de forma balanceada entre los hilos</li>
+<li>Se evita que varios hilos trabajen sobre datos demasiado próximos, reduciendo el riesgo de <em>false sharing</em></li>
+</ul>
+<p>La combinación del tiling con el esquema Red–Black genera un paralelismo muy eficiente que escala bien con el número de núcleos del procesador.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">BX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">BY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nBlocksX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">BX</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">BX</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nBlocksY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">BY</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">BY</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">jStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bjy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">BY</span><span class="p">,</span><span class="w"> </span><span class="n">jEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">jStart</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">BY</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">iStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bxi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">BX</span><span class="p">,</span><span class="w"> </span><span class="n">iEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">iStart</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">BX</span><span class="p">);</span>
+</code></pre></div></p>
+<p>Así, cada hilo trabaja sobre un bloque bien delimitado, cuyos datos permanecen dentro de las caches del procesador durante casi toda la operación, lo que incrementa significativamente el rendimiento general.</p>
 
 
 

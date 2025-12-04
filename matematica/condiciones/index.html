@@ -828,6 +828,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../implementacion/Paralelizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paralelización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -904,6 +932,34 @@
     
   
     Casos de Prueba
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ejemplos/ejemplos-ejecucion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejecución y Resultados
   
 
     
@@ -1163,13 +1219,14 @@ u_{0,j}^{n+1} = g(y_j, t_{n+1})
 <div class="arithmatex">\[
 u_{-1,j} = u_{1,j} - 2h_x \cdot g(y_j, t)
 \]</div>
-<p>Se sustituye en la aproximación de la segunda derivada:</p>
+<p>Se sustituye en la ecuacion de calor discretizada:</p>
 <div class="arithmatex">\[
 \begin{align}
-\frac{\partial^2 u}{\partial x^2}\bigg|_{0,j} &amp;\approx \frac{u_{-1,j} - 2u_{0,j} + u_{1,j}}{h_x^2} \\
-&amp;= \frac{(u_{1,j} - 2h_x g) - 2u_{0,j} + u_{1,j}}{h_x^2} \\
-&amp;= \frac{2u_{1,j} - 2u_{0,j}}{h_x^2} - \frac{2g}{h_x}
+(1 + 2\mu_x + 2\mu_y)u_{0,j}^{n+1} - \mu_x(2u_{1,j}^{n+1} - 2h_x g) - \mu_y(u_{0,j-1}^{n+1} + u_{0,j+1}^{n+1}) = u_{0,j}^n
 \end{align}
+\]</div>
+<div class="arithmatex">\[
+(1 + 2\mu_x + 2\mu_y)u_{0,j}^{n+1} - 2\mu_xu_{1,j}^{n+1}  - \mu_y(u_{0,j-1}^{n+1} + u_{0,j+1}^{n+1}) = u_{0,j}^n - 2h_x g \mu_x
 \]</div>
 <h3 id="modificaciones-al-sistema-lineal">Modificaciones al Sistema Lineal<a class="headerlink" href="#modificaciones-al-sistema-lineal" title="Permanent link">&para;</a></h3>
 <p>Como se puede ver, los resultados anteriores modifican el planteamiento del sistema lineal que obtuvimos en la derivacion anterior:</p>
@@ -1230,8 +1287,6 @@ u_{-1,j} = u_{1,j} - 2h_x \cdot g(y_j, t)
 </tr>
 </tbody>
 </table>
-<hr />
-<p><strong>Ahora</strong>: En la sección <a href="python.md">Python</a> se puede ver cómo se implemento la solucion en Python.</p>
 
 
 
