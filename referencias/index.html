@@ -1,0 +1,2561 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Solución numérica de la ecuación de calor en dos dimensiones">
+      
+      
+        <meta name="author" content="Sofia Isadora Sara Montse">
+      
+      
+        <link rel="canonical" href="https://mon-solano.github.io/proyecto-computacional/referencias/">
+      
+      
+        <link rel="prev" href="../ejemplos/casos-prueba/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Referencias - Ecuación de Calor en 2D</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="lavender">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#referencias" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Ecuación de Calor en 2D" class="md-header__button md-logo" aria-label="Ecuación de Calor en 2D" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ecuación de Calor en 2D
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Referencias
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="lavender"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lavender"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mon-solano/proyecto-computacional" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mon-solano/proyecto-computacional
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../matematica/formulacion/" class="md-tabs__link">
+          
+  
+  
+  Problema Matemático
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../implementacion/python/" class="md-tabs__link">
+          
+  
+  
+  Implementación
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ejemplos/casos-prueba/" class="md-tabs__link">
+          
+  
+  
+  Ejemplos de Uso
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Referencias
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Ecuación de Calor en 2D" class="md-nav__button md-logo" aria-label="Ecuación de Calor en 2D" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Ecuación de Calor en 2D
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mon-solano/proyecto-computacional" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mon-solano/proyecto-computacional
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problema Matemático
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Problema Matemático
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matematica/formulacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formulación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matematica/metodologia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metodología Numérica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matematica/condiciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Condiciones de Frontera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementación
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Implementación
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implementacion/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implementacion/cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejemplos de Uso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejemplos de Uso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ejemplos/casos-prueba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casos de Prueba
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencias
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#libros-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Libros de Texto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Libros de Texto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecuaciones-diferenciales-parciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ecuaciones Diferenciales Parciales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-numericos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métodos Numéricos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#articulos-cientificos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artículos Científicos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Artículos Científicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodo-de-euler-implicito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Método de Euler Implícito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodo-de-crank-nicolson-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Método de Crank-Nicolson (Referencia)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condiciones-de-frontera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condiciones de Frontera
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-en-linea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursos en Línea
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursos en Línea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tutoriales-y-documentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutoriales y Documentación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cursos-y-notas-de-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cursos y Notas de Clase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicaciones-y-contexto-fisico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aplicaciones y Contexto Físico
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aplicaciones y Contexto Físico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transferencia-de-calor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transferencia de Calor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fisica-matematica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Física Matemática
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-y-bibliotecas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software y Bibliotecas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software y Bibliotecas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bibliotecas-alternativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bibliotecas Alternativas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topicos-avanzados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tópicos Avanzados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tópicos Avanzados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analisis-de-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análisis de Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-adaptativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métodos Adaptativos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paralelizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paralelización
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacion-y-verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación y Verificación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validación y Verificación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluciones-analiticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soluciones Analíticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benchmarks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositorios-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repositorios de Código
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repositorios de Código">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementaciones-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementaciones de Referencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estandares-y-mejores-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estándares y Mejores Prácticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estándares y Mejores Prácticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#programacion-cientifica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación Científica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-de-visualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software de Visualización
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software de Visualización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-avanzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramientas Avanzadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-educativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursos Educativos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursos Educativos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#videos-y-cursos-online" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Videos y Cursos Online
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicaciones-especificas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aplicaciones Específicas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aplicaciones Específicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciencia-de-materiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciencia de Materiales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Biología
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finanzas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finanzas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conferencias-y-journals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conferencias y Journals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conferencias y Journals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conferencias-relevantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conferencias Relevantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#journals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Journals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas-de-desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramientas de Desarrollo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Herramientas de Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ides-y-editores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IDEs y Editores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proyectos-relacionados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proyectos Relacionados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyectos Relacionados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solvers-comerciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solvers Comerciales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solvers-open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solvers Open Source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-citar-este-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo Citar Este Proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notas-finales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notas Finales
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#libros-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Libros de Texto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Libros de Texto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecuaciones-diferenciales-parciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ecuaciones Diferenciales Parciales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-numericos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métodos Numéricos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#articulos-cientificos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artículos Científicos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Artículos Científicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodo-de-euler-implicito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Método de Euler Implícito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodo-de-crank-nicolson-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Método de Crank-Nicolson (Referencia)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condiciones-de-frontera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condiciones de Frontera
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-en-linea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursos en Línea
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursos en Línea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tutoriales-y-documentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutoriales y Documentación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cursos-y-notas-de-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cursos y Notas de Clase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicaciones-y-contexto-fisico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aplicaciones y Contexto Físico
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aplicaciones y Contexto Físico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transferencia-de-calor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transferencia de Calor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fisica-matematica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Física Matemática
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-y-bibliotecas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software y Bibliotecas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software y Bibliotecas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bibliotecas-alternativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bibliotecas Alternativas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topicos-avanzados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tópicos Avanzados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tópicos Avanzados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analisis-de-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análisis de Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-adaptativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métodos Adaptativos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paralelizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paralelización
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacion-y-verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación y Verificación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validación y Verificación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluciones-analiticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soluciones Analíticas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benchmarks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repositorios-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repositorios de Código
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repositorios de Código">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementaciones-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementaciones de Referencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estandares-y-mejores-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estándares y Mejores Prácticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estándares y Mejores Prácticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#programacion-cientifica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programación Científica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-de-visualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software de Visualización
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software de Visualización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-avanzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramientas Avanzadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-educativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursos Educativos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursos Educativos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#videos-y-cursos-online" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Videos y Cursos Online
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicaciones-especificas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aplicaciones Específicas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aplicaciones Específicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciencia-de-materiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciencia de Materiales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Biología
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finanzas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finanzas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conferencias-y-journals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conferencias y Journals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conferencias y Journals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conferencias-relevantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conferencias Relevantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#journals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Journals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas-de-desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramientas de Desarrollo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Herramientas de Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ides-y-editores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IDEs y Editores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proyectos-relacionados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proyectos Relacionados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proyectos Relacionados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solvers-comerciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solvers Comerciales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solvers-open-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solvers Open Source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-citar-este-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo Citar Este Proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notas-finales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notas Finales
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h1>
+<p>Esta sección proporciona referencias bibliográficas y recursos adicionales sobre la ecuación de calor, métodos numéricos y análisis.</p>
+<h2 id="libros-de-texto">Libros de Texto<a class="headerlink" href="#libros-de-texto" title="Permanent link">&para;</a></h2>
+<h3 id="ecuaciones-diferenciales-parciales">Ecuaciones Diferenciales Parciales<a class="headerlink" href="#ecuaciones-diferenciales-parciales" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Evans, L. C.</strong> (2010). <em>Partial Differential Equations</em> (2nd ed.). American Mathematical Society.</li>
+<li>
+<p>Tratamiento riguroso de EDPs, incluyendo teoría de la ecuación de calor</p>
+</li>
+<li>
+<p><strong>Strauss, W. A.</strong> (2007). <em>Partial Differential Equations: An Introduction</em> (2nd ed.). Wiley.</p>
+</li>
+<li>
+<p>Introducción accesible con enfoque en aplicaciones físicas</p>
+</li>
+<li>
+<p><strong>Haberman, R.</strong> (2012). <em>Applied Partial Differential Equations with Fourier Series and Boundary Value Problems</em> (5th ed.). Pearson.</p>
+</li>
+<li>Excelente para métodos de separación de variables y series de Fourier</li>
+</ol>
+<h3 id="metodos-numericos">Métodos Numéricos<a class="headerlink" href="#metodos-numericos" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>LeVeque, R. J.</strong> (2007). <em>Finite Difference Methods for Ordinary and Partial Differential Equations</em>. SIAM.</li>
+<li>Referencia esencial para métodos de diferencias finitas</li>
+<li>
+<p>Cubre análisis de estabilidad y convergencia</p>
+</li>
+<li>
+<p><strong>Iserles, A.</strong> (2008). <em>A First Course in the Numerical Analysis of Differential Equations</em> (2nd ed.). Cambridge University Press.</p>
+</li>
+<li>
+<p>Análisis matemático riguroso de esquemas numéricos</p>
+</li>
+<li>
+<p><strong>Morton, K. W., &amp; Mayers, D. F.</strong> (2005). <em>Numerical Solution of Partial Differential Equations</em> (2nd ed.). Cambridge University Press.</p>
+</li>
+<li>Cubre Crank-Nicolson y otros esquemas implícitos</li>
+</ol>
+<h2 id="articulos-cientificos">Artículos Científicos<a class="headerlink" href="#articulos-cientificos" title="Permanent link">&para;</a></h2>
+<h3 id="metodo-de-euler-implicito">Método de Euler Implícito<a class="headerlink" href="#metodo-de-euler-implicito" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Butcher, J. C.</strong> (2008). <em>Numerical Methods for Ordinary Differential Equations</em> (2nd ed.). Wiley.</li>
+<li>
+<p>Análisis de métodos implícitos incluyendo Backward Euler</p>
+</li>
+<li>
+<p><strong>Thomas, J. W.</strong> (1995). <em>Numerical Partial Differential Equations: Finite Difference Methods</em>. Springer.</p>
+</li>
+<li>Análisis detallado de estabilidad de esquemas implícitos</li>
+</ol>
+<h3 id="metodo-de-crank-nicolson-referencia">Método de Crank-Nicolson (Referencia)<a class="headerlink" href="#metodo-de-crank-nicolson-referencia" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Crank, J., &amp; Nicolson, P.</strong> (1947). "A practical method for numerical evaluation of solutions of partial differential equations of the heat-conduction type." <em>Proceedings of the Cambridge Philosophical Society</em>, 43(1), 50-67.</li>
+<li>
+<p>Artículo original del método</p>
+</li>
+<li>
+<p><strong>Thomas, J. W.</strong> (1995). <em>Numerical Partial Differential Equations: Finite Difference Methods</em>. Springer.</p>
+</li>
+<li>Análisis detallado de estabilidad del esquema Crank-Nicolson</li>
+</ol>
+<h3 id="condiciones-de-frontera">Condiciones de Frontera<a class="headerlink" href="#condiciones-de-frontera" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Gustafsson, B., Kreiss, H. O., &amp; Oliger, J.</strong> (1995). <em>Time Dependent Problems and Difference Methods</em>. Wiley.</li>
+<li>
+<p>Tratamiento riguroso de condiciones de frontera en esquemas numéricos</p>
+</li>
+<li>
+<p><strong>Strikwerda, J. C.</strong> (2004). <em>Finite Difference Schemes and Partial Differential Equations</em> (2nd ed.). SIAM.</p>
+<ul>
+<li>Implementación práctica de condiciones de Neumann</li>
+</ul>
+</li>
+</ol>
+<h2 id="recursos-en-linea">Recursos en Línea<a class="headerlink" href="#recursos-en-linea" title="Permanent link">&para;</a></h2>
+<h3 id="tutoriales-y-documentacion">Tutoriales y Documentación<a class="headerlink" href="#tutoriales-y-documentacion" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>SciPy Sparse Linear Algebra</strong></p>
+<ul>
+<li>URL: https://docs.scipy.org/doc/scipy/reference/sparse.linalg.html</li>
+<li>Documentación oficial de solvers para sistemas dispersos</li>
+</ul>
+</li>
+<li>
+<p><strong>NumPy User Guide</strong></p>
+<ul>
+<li>URL: https://numpy.org/doc/stable/user/</li>
+<li>Guía completa de operaciones matriciales</li>
+</ul>
+</li>
+<li>
+<p><strong>Matplotlib Gallery</strong></p>
+<ul>
+<li>URL: https://matplotlib.org/stable/gallery/index.html</li>
+<li>Ejemplos de visualización científica</li>
+</ul>
+</li>
+</ol>
+<h3 id="cursos-y-notas-de-clase">Cursos y Notas de Clase<a class="headerlink" href="#cursos-y-notas-de-clase" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>MIT OpenCourseWare: Numerical Methods for PDEs</strong></p>
+<ul>
+<li>URL: https://ocw.mit.edu/courses/mathematics/</li>
+<li>Material de curso 18.336: Numerical Methods for PDEs</li>
+</ul>
+</li>
+<li>
+<p><strong>Stanford CS 205A: Mathematical Methods for Robotics, Vision, and Graphics</strong></p>
+<ul>
+<li>URL: https://graphics.stanford.edu/courses/cs205a/</li>
+<li>Incluye métodos numéricos para ecuaciones de calor</li>
+</ul>
+</li>
+</ol>
+<h2 id="aplicaciones-y-contexto-fisico">Aplicaciones y Contexto Físico<a class="headerlink" href="#aplicaciones-y-contexto-fisico" title="Permanent link">&para;</a></h2>
+<h3 id="transferencia-de-calor">Transferencia de Calor<a class="headerlink" href="#transferencia-de-calor" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Incropera, F. P., et al.</strong> (2011). <em>Fundamentals of Heat and Mass Transfer</em> (7th ed.). Wiley.</p>
+<ul>
+<li>Contexto físico y aplicaciones ingenieriles</li>
+</ul>
+</li>
+<li>
+<p><strong>Cengel, Y. A., &amp; Ghajar, A. J.</strong> (2014). <em>Heat and Mass Transfer: Fundamentals and Applications</em> (5th ed.). McGraw-Hill.</p>
+<ul>
+<li>Aplicaciones prácticas en ingeniería</li>
+</ul>
+</li>
+</ol>
+<h3 id="fisica-matematica">Física Matemática<a class="headerlink" href="#fisica-matematica" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Arfken, G. B., Weber, H. J., &amp; Harris, F. E.</strong> (2013). <em>Mathematical Methods for Physicists</em> (7th ed.). Academic Press.</p>
+<ul>
+<li>Métodos matemáticos para resolver EDPs en física</li>
+</ul>
+</li>
+<li>
+<p><strong>Boas, M. L.</strong> (2006). <em>Mathematical Methods in the Physical Sciences</em> (3rd ed.). Wiley.</p>
+<ul>
+<li>Introducción accesible a métodos de separación de variables</li>
+</ul>
+</li>
+</ol>
+<h2 id="software-y-bibliotecas">Software y Bibliotecas<a class="headerlink" href="#software-y-bibliotecas" title="Permanent link">&para;</a></h2>
+<h3 id="python">Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Harris, C. R., et al.</strong> (2020). "Array programming with NumPy." <em>Nature</em>, 585(7825), 357-362.</p>
+<ul>
+<li>Paper sobre NumPy</li>
+</ul>
+</li>
+<li>
+<p><strong>Virtanen, P., et al.</strong> (2020). "SciPy 1.0: fundamental algorithms for scientific computing in Python." <em>Nature Methods</em>, 17(3), 261-272.</p>
+<ul>
+<li>Paper sobre SciPy</li>
+</ul>
+</li>
+</ol>
+<h3 id="bibliotecas-alternativas">Bibliotecas Alternativas<a class="headerlink" href="#bibliotecas-alternativas" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Firedrake Project</strong></p>
+<ul>
+<li>URL: https://www.firedrakeproject.org/</li>
+<li>Framework de elementos finitos en Python</li>
+</ul>
+</li>
+<li>
+<p><strong>FEniCS Project</strong></p>
+<ul>
+<li>URL: https://fenicsproject.org/</li>
+<li>Otro framework popular para resolver EDPs</li>
+</ul>
+</li>
+</ol>
+<h2 id="topicos-avanzados">Tópicos Avanzados<a class="headerlink" href="#topicos-avanzados" title="Permanent link">&para;</a></h2>
+<h3 id="analisis-de-error">Análisis de Error<a class="headerlink" href="#analisis-de-error" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Quarteroni, A., Sacco, R., &amp; Saleri, F.</strong> (2007). <em>Numerical Mathematics</em> (2nd ed.). Springer.</p>
+<ul>
+<li>Análisis riguroso de error y convergencia</li>
+</ul>
+</li>
+<li>
+<p><strong>Süli, E., &amp; Mayers, D. F.</strong> (2003). <em>An Introduction to Numerical Analysis</em>. Cambridge University Press.</p>
+<ul>
+<li>Teoría de aproximación numérica</li>
+</ul>
+</li>
+</ol>
+<h3 id="metodos-adaptativos">Métodos Adaptativos<a class="headerlink" href="#metodos-adaptativos" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Verfürth, R.</strong> (2013). <em>A Posteriori Error Estimation Techniques for Finite Element Methods</em>. Oxford University Press.</p>
+<ul>
+<li>Técnicas de refinamiento adaptativo de malla</li>
+</ul>
+</li>
+<li>
+<p><strong>Babuška, I., &amp; Rheinboldt, W. C.</strong> (1978). "A-posteriori error estimates for the finite element method." <em>International Journal for Numerical Methods in Engineering</em>, 12(10), 1597-1615.</p>
+<ul>
+<li>Artículo fundamental sobre estimación de error</li>
+</ul>
+</li>
+</ol>
+<h3 id="paralelizacion">Paralelización<a class="headerlink" href="#paralelizacion" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Gropp, W., Lusk, E., &amp; Skjellum, A.</strong> (1999). <em>Using MPI: Portable Parallel Programming with the Message-Passing Interface</em> (2nd ed.). MIT Press.</p>
+<ul>
+<li>Para implementaciones paralelas con MPI</li>
+</ul>
+</li>
+<li>
+<p><strong>Chapman, B., Jost, G., &amp; Van Der Pas, R.</strong> (2007). <em>Using OpenMP: Portable Shared Memory Parallel Programming</em>. MIT Press.</p>
+<ul>
+<li>Paralelización con OpenMP</li>
+</ul>
+</li>
+</ol>
+<h2 id="validacion-y-verificacion">Validación y Verificación<a class="headerlink" href="#validacion-y-verificacion" title="Permanent link">&para;</a></h2>
+<h3 id="soluciones-analiticas">Soluciones Analíticas<a class="headerlink" href="#soluciones-analiticas" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Carslaw, H. S., &amp; Jaeger, J. C.</strong> (1959). <em>Conduction of Heat in Solids</em> (2nd ed.). Oxford University Press.</p>
+<ul>
+<li>Colección extensa de soluciones analíticas</li>
+</ul>
+</li>
+<li>
+<p><strong>Özışık, M. N.</strong> (1993). <em>Heat Conduction</em> (2nd ed.). Wiley.</p>
+<ul>
+<li>Soluciones exactas para diversos casos</li>
+</ul>
+</li>
+</ol>
+<h3 id="benchmarks">Benchmarks<a class="headerlink" href="#benchmarks" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>NIST Digital Library of Mathematical Functions</strong><ul>
+<li>URL: https://dlmf.nist.gov/</li>
+<li>Funciones especiales y soluciones estándar</li>
+</ul>
+</li>
+</ol>
+<h2 id="repositorios-de-codigo">Repositorios de Código<a class="headerlink" href="#repositorios-de-codigo" title="Permanent link">&para;</a></h2>
+<h3 id="implementaciones-de-referencia">Implementaciones de Referencia<a class="headerlink" href="#implementaciones-de-referencia" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>SciPy Cookbook - Solving PDEs</strong></p>
+<ul>
+<li>URL: https://scipy-cookbook.readthedocs.io/</li>
+<li>Ejemplos prácticos de implementación</li>
+</ul>
+</li>
+<li>
+<p><strong>GitHub: Numerical Methods</strong></p>
+<ul>
+<li>URL: https://github.com/topics/numerical-methods</li>
+<li>Colección de implementaciones open-source</li>
+</ul>
+</li>
+</ol>
+<h2 id="estandares-y-mejores-practicas">Estándares y Mejores Prácticas<a class="headerlink" href="#estandares-y-mejores-practicas" title="Permanent link">&para;</a></h2>
+<h3 id="programacion-cientifica">Programación Científica<a class="headerlink" href="#programacion-cientifica" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Wilson, G., et al.</strong> (2014). "Best practices for scientific computing." <em>PLOS Biology</em>, 12(1), e1001745.</p>
+<ul>
+<li>Guía de buenas prácticas en cómputo científico</li>
+</ul>
+</li>
+<li>
+<p><strong>Wilson, G., et al.</strong> (2017). "Good enough practices in scientific computing." <em>PLOS Computational Biology</em>, 13(6), e1005510.</p>
+<ul>
+<li>Prácticas recomendadas para proyectos científicos</li>
+</ul>
+</li>
+</ol>
+<h2 id="software-de-visualizacion">Software de Visualización<a class="headerlink" href="#software-de-visualizacion" title="Permanent link">&para;</a></h2>
+<h3 id="herramientas-avanzadas">Herramientas Avanzadas<a class="headerlink" href="#herramientas-avanzadas" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>ParaView</strong></p>
+<ul>
+<li>URL: https://www.paraview.org/</li>
+<li>Visualización 3D avanzada para datos científicos</li>
+</ul>
+</li>
+<li>
+<p><strong>VisIt</strong></p>
+<ul>
+<li>URL: https://visit-dav.github.io/visit-website/</li>
+<li>Herramienta de visualización para simulaciones a gran escala</li>
+</ul>
+</li>
+</ol>
+<h2 id="recursos-educativos">Recursos Educativos<a class="headerlink" href="#recursos-educativos" title="Permanent link">&para;</a></h2>
+<h3 id="videos-y-cursos-online">Videos y Cursos Online<a class="headerlink" href="#videos-y-cursos-online" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>3Blue1Brown: Differential Equations</strong></p>
+<ul>
+<li>URL: https://www.youtube.com/c/3blue1brown</li>
+<li>Visualizaciones intuitivas de conceptos matemáticos</li>
+</ul>
+</li>
+<li>
+<p><strong>MIT 18.086: Mathematical Methods for Engineers II</strong></p>
+<ul>
+<li>URL: https://ocw.mit.edu/courses/18-086-mathematical-methods-for-engineers-ii-spring-2006/</li>
+<li>Video lectures sobre EDPs y métodos numéricos</li>
+</ul>
+</li>
+</ol>
+<h2 id="aplicaciones-especificas">Aplicaciones Específicas<a class="headerlink" href="#aplicaciones-especificas" title="Permanent link">&para;</a></h2>
+<h3 id="ciencia-de-materiales">Ciencia de Materiales<a class="headerlink" href="#ciencia-de-materiales" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Balluffi, R. W., Allen, S. M., &amp; Carter, W. C.</strong> (2005). <em>Kinetics of Materials</em>. Wiley.<ul>
+<li>Difusión en materiales</li>
+</ul>
+</li>
+</ol>
+<h3 id="biologia">Biología<a class="headerlink" href="#biologia" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Murray, J. D.</strong> (2002). <em>Mathematical Biology I: An Introduction</em> (3rd ed.). Springer.<ul>
+<li>Ecuaciones de difusión en sistemas biológicos</li>
+</ul>
+</li>
+</ol>
+<h3 id="finanzas">Finanzas<a class="headerlink" href="#finanzas" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Wilmott, P., Howison, S., &amp; Dewynne, J.</strong> (1995). <em>The Mathematics of Financial Derivatives</em>. Cambridge University Press.<ul>
+<li>Ecuación de calor en modelos financieros (Black-Scholes)</li>
+</ul>
+</li>
+</ol>
+<h2 id="conferencias-y-journals">Conferencias y Journals<a class="headerlink" href="#conferencias-y-journals" title="Permanent link">&para;</a></h2>
+<h3 id="conferencias-relevantes">Conferencias Relevantes<a class="headerlink" href="#conferencias-relevantes" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>SIAM Conference on Computational Science and Engineering</strong></p>
+<ul>
+<li>URL: https://www.siam.org/conferences/</li>
+<li>Conferencia líder en métodos computacionales</li>
+</ul>
+</li>
+<li>
+<p><strong>International Conference on Numerical Analysis and Applied Mathematics</strong></p>
+<ul>
+<li>Conferencia especializada en análisis numérico</li>
+</ul>
+</li>
+</ol>
+<h3 id="journals">Journals<a class="headerlink" href="#journals" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Journal of Computational Physics</strong></p>
+<ul>
+<li>Artículos sobre métodos numéricos avanzados</li>
+</ul>
+</li>
+<li>
+<p><strong>SIAM Journal on Numerical Analysis</strong></p>
+<ul>
+<li>Análisis teórico de métodos numéricos</li>
+</ul>
+</li>
+<li>
+<p><strong>Numerische Mathematik</strong></p>
+<ul>
+<li>Journal clásico de matemáticas numéricas</li>
+</ul>
+</li>
+</ol>
+<h2 id="herramientas-de-desarrollo">Herramientas de Desarrollo<a class="headerlink" href="#herramientas-de-desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="ides-y-editores">IDEs y Editores<a class="headerlink" href="#ides-y-editores" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Jupyter Lab</strong></p>
+<ul>
+<li>URL: https://jupyter.org/</li>
+<li>Entorno interactivo para desarrollo científico</li>
+</ul>
+</li>
+<li>
+<p><strong>VS Code with Python Extension</strong></p>
+<ul>
+<li>URL: https://code.visualstudio.com/</li>
+<li>Editor moderno con excelente soporte para Python</li>
+</ul>
+</li>
+</ol>
+<h2 id="proyectos-relacionados">Proyectos Relacionados<a class="headerlink" href="#proyectos-relacionados" title="Permanent link">&para;</a></h2>
+<h3 id="solvers-comerciales">Solvers Comerciales<a class="headerlink" href="#solvers-comerciales" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>COMSOL Multiphysics</strong></p>
+<ul>
+<li>Software comercial para simulación multifísica</li>
+</ul>
+</li>
+<li>
+<p><strong>ANSYS Fluent</strong></p>
+<ul>
+<li>Suite comercial de CFD</li>
+</ul>
+</li>
+</ol>
+<h3 id="solvers-open-source">Solvers Open Source<a class="headerlink" href="#solvers-open-source" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>OpenFOAM</strong></p>
+<ul>
+<li>URL: https://www.openfoam.com/</li>
+<li>Toolbox open-source para CFD</li>
+</ul>
+</li>
+<li>
+<p><strong>deal.II</strong></p>
+<ul>
+<li>URL: https://www.dealii.org/</li>
+<li>Biblioteca C++ para elementos finitos</li>
+</ul>
+</li>
+</ol>
+<h2 id="como-citar-este-proyecto">Cómo Citar Este Proyecto<a class="headerlink" href="#como-citar-este-proyecto" title="Permanent link">&para;</a></h2>
+<p>Si utilizas este solver en investigación o trabajo académico, puedes citarlo como:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@software</span><span class="p">{</span><span class="nl">heat_equation_2d</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Tu Nombre}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Heat Equation 2D Solver}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/tu-usuario/heat-equation-2d}</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{1.0}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="notas-finales">Notas Finales<a class="headerlink" href="#notas-finales" title="Permanent link">&para;</a></h2>
+<p>Esta lista de referencias proporciona una base sólida para comprender la teoría y práctica de la solución numérica de la ecuación de calor. Se recomienda comenzar con los libros de texto introductorios y luego avanzar hacia temas más especializados según las necesidades del proyecto.</p>
+<div class="admonition tip">
+<p class="admonition-title">Sugerencia</p>
+<p>Para un estudio sistemático, se recomienda seguir este orden:</p>
+<ol>
+<li><strong>Fundamentos matemáticos</strong>: Referencias [1-3, 18-19]</li>
+<li><strong>Métodos numéricos</strong>: Referencias [4-6]</li>
+<li><strong>Implementación práctica</strong>: Referencias [11-12, 33-34]</li>
+<li><strong>Aplicaciones</strong>: Referencias [16-17, 41-43]</li>
+</ol>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Actualizaciones</p>
+<p>Esta lista se actualizará periódicamente con nuevas referencias relevantes. Sugerencias de adiciones son bienvenidas.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
